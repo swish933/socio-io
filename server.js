@@ -19,7 +19,15 @@ mongoose.connect(process.env.MONGO_URI, () => {
 
 app.use(express.json({ limit: "10mb" }));
 app.use(cors());
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https://res.cloudinary.com/"],
+      "media-src": ["'self'", "https://res.cloudinary.com/"],
+    },
+  })
+);
 app.use(morgan("common"));
 
 app.use("/api/users", userRouter);
