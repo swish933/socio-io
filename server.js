@@ -9,9 +9,11 @@ const authRouter = require("./routes/auth");
 const path = require("path");
 const cors = require("cors");
 
-const app = express();
-dotenv.config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
+const app = express();
 mongoose.connect(process.env.MONGO_URI, () => {
   console.log("MongoDB connected");
 });
