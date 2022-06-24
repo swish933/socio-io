@@ -5,11 +5,11 @@ const config = {
 };
 
 const register = (data) => {
-  return axios.post(`/auth/register`, data, config);
+  return axios.post(`/api/auth/register`, data, config);
 };
 
 const login = (data) => {
-  return axios.post(`/auth/login`, data, config);
+  return axios.post(`/api/auth/login`, data, config);
 };
 
 const logout = () => {

@@ -7,23 +7,23 @@ const config = {
 };
 
 const getTimeline = () => {
-  return axios.get("/posts/timeline/all");
+  return axios.get("/api/posts/timeline/all");
 };
 
 const getUserPosts = (userName) => {
-  return axios.get(`/posts/userposts/${userName}`);
+  return axios.get(`/api/posts/userposts/${userName}`);
 };
 
 const newPost = (post) => {
-  return axios.post(`/posts`, post, config);
+  return axios.post(`/api/posts`, post, config);
 };
 
 const deletePost = (id) => {
-  return axios.delete(`/posts/${id}`);
+  return axios.delete(`/api/posts/${id}`);
 };
 
 const likePost = (id) => {
-  return axios.put(`/posts/${id}/like`);
+  return axios.put(`/api/posts/${id}/like`);
 };
 
 export const PostService = {
