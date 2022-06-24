@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
-const dotenv = require("dotenv");
 const morgan = require("morgan");
 const userRouter = require("./routes/users");
 const postRouter = require("./routes/posts");
@@ -33,7 +32,7 @@ if (
 ) {
   //Set static folder
   app.use(express.static(path.join(__dirname, "client", "build")));
-  app.use("*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
